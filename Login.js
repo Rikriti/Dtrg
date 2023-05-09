@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -17,35 +10,43 @@ import {
   Alert,
 } from "react-native";
 
-
+ import { SOAPConnection } from "./SOAPConnection";
 
 
 
 const Login =({navigation})=>{
   
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [domain, setDomain] = useState("");
 
-  const submit = () =>{
-    // return Alert.alert(email,password);
-    if (email==="admin" && password==="admin123"){
-        Alert.alert('Sucessful Login');
-        navigation.navigate("home");
-    }else{
-        Alert.alert('Username and Password is not correct');
+  const submit = async (username, password, domain) =>{
+
+    try{
+      var resp = await SOAPConnection(username, password, domain) ;
+      console.log(resp);
+    }catch(error){
+      console.log(error);
     }
+     
+      
+    // if (username==="admin" && password==="admin123" && domain==="admin"){
+    //     Alert.alert('Sucessful Login');
+    //     navigation.navigate("Dashboard");
+    // }else{
+    //     Alert.alert('Username or Password is not correct');
+    // }
   }
 
   return (
     <View style={styles.container}>
-    <Image style={styles.image} source={require("./assets/DTRGLOGO.png")}  /> 
     <View style={styles.inputView}>
       <TextInput
         style={styles.TextInput}
-        placeholder="Email"
+        placeholder="Username"
         placeholderTextColor="#808080"
-        value={email}
-        onChangeText={(username) => setEmail(username)}
+        value={username}
+        onChangeText={(username) => setUsername(username)}
       /> 
     </View> 
     <View style={styles.inputView}>
@@ -58,7 +59,15 @@ const Login =({navigation})=>{
         onChangeText={(password) => setPassword(password)}
       /> 
     </View> 
-
+    <View style={styles.inputView}>
+      <TextInput
+        style={styles.TextInput}
+        placeholder="Domain"
+        placeholderTextColor="#808080"
+        value={domain}
+        onChangeText={(domain) => setDomain(domain)}
+      /> 
+    </View> 
     <TouchableOpacity style={styles.loginBtn} onPress={() => submit() }>
         <Text style={styles.loginText}>LOGIN</Text>  
       </TouchableOpacity> 
@@ -67,26 +76,29 @@ const Login =({navigation})=>{
       <Text style={styles.forgot_button}>Forgot Password?</Text> 
       </View>
       </TouchableOpacity> 
+
+      {/* <View style={styles.footer}>
+      <Text style={styles.powered}>Powered By</Text> 
+      <Image style={styles.image} source={require("./assets/DTRGLOGO.png")}  /> 
+      </View> */}
     </View> 
+
+    
   );
 }
 
 const styles = StyleSheet.create({
  
   container: {
-    flex: 1,
+    flex:1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  image: {
-    marginBottom: 40,
+     alignItems: "center",
+     justifyContent: "center",
   },
   inputView: {
-    width: "70%",
+    width: "60%",
     height: 45,
     marginBottom: 20,
-    alignItems: "center",
     borderBottomWidth :1,
     borderBottomColor: '#000',
   },
@@ -112,7 +124,13 @@ const styles = StyleSheet.create({
   },
   fontawesome:{
     color:"black"
-  }
+  },
+  footer:{
+marginTop:50,
+flexDirection:"row",
+letterSpacing:10,
+  },
+
 });
 
 export default Login;
