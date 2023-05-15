@@ -1,16 +1,10 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+
 
 import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
   View,
-  Image,
   TextInput,
   Button,
   TouchableOpacity,
@@ -20,17 +14,17 @@ import {
 
 
 
-
 const Login =({navigation})=>{
   
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [domain, setDomain] = useState("");
 
-  const submit = () =>{
+  const submit = async () =>{
     // return Alert.alert(email,password);
-    if (email==="admin" && password==="admin123"){
+    if (username==="admin" && password==="super@dmin@123" && domain==="admin"){
         Alert.alert('Sucessful Login');
-        navigation.navigate("home");
+        navigation.navigate("Dashboard");
     }else{
         Alert.alert('Username and Password is not correct');
     }
@@ -38,14 +32,13 @@ const Login =({navigation})=>{
 
   return (
     <View style={styles.container}>
-    <Image style={styles.image} source={require("./assets/DTRGLOGO.png")}  /> 
     <View style={styles.inputView}>
       <TextInput
         style={styles.TextInput}
-        placeholder="Email"
+        placeholder="Username"
         placeholderTextColor="#808080"
-        value={email}
-        onChangeText={(username) => setEmail(username)}
+        value={username}
+        onChangeText={(username) => setUsername(username)}
       /> 
     </View> 
     <View style={styles.inputView}>
@@ -56,6 +49,15 @@ const Login =({navigation})=>{
         secureTextEntry={true}
         value={password}
         onChangeText={(password) => setPassword(password)}
+      /> 
+    </View> 
+    <View style={styles.inputView}>
+      <TextInput
+        style={styles.TextInput}
+        placeholder="Domain"
+        placeholderTextColor="#808080"
+        value={domain}
+        onChangeText={(domain) => setDomain(domain)}
       /> 
     </View> 
 
@@ -83,10 +85,9 @@ const styles = StyleSheet.create({
     marginBottom: 40,
   },
   inputView: {
-    width: "70%",
+    width: "60%",
     height: 45,
     marginBottom: 20,
-    alignItems: "center",
     borderBottomWidth :1,
     borderBottomColor: '#000',
   },
