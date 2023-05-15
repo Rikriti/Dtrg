@@ -13,14 +13,10 @@
     "@eva-design/eva": "^2.2.0",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
-<<<<<<< HEAD
     "@ui-kitten/components": "^5.3.1",
     "axios": "^1.4.0",
     "msnodesqlv8": "^3.1.0",
     "mssql": "^9.1.1",
-=======
-    "axios": "^1.4.0",
->>>>>>> 1ed236befa1c84f6d7cc7efa7660ac349f63ca2e
     "react": "18.2.0",
     "react-native": "0.71.7",
     "react-native-mssql": "^0.1.4",
