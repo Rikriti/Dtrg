@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 1ed236befa1c84f6d7cc7efa7660ac349f63ca2e
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -14,7 +11,7 @@ import {
   Alert,
 } from "react-native";
 
- import { SOAPConnection } from "./SOAPConnection";
+
 
 
 const Login =({navigation})=>{
@@ -23,7 +20,6 @@ const Login =({navigation})=>{
   const [password, setPassword] = useState("");
   const [domain, setDomain] = useState("");
 
-<<<<<<< HEAD
   const submit = async () =>{
     // return Alert.alert(email,password);
     if (username==="admin" && password==="super@dmin@123" && domain==="admin"){
@@ -31,24 +27,7 @@ const Login =({navigation})=>{
         navigation.navigate("Dashboard");
     }else{
         Alert.alert('Username and Password is not correct');
-=======
-  const submit = async (username, password, domain) =>{
-
-    try{
-      var resp = await SOAPConnection(username, password, domain) ;
-      console.log(resp);
-    }catch(error){
-      console.log(error);
->>>>>>> 1ed236befa1c84f6d7cc7efa7660ac349f63ca2e
     }
-     
-      
-    // if (username==="admin" && password==="admin123" && domain==="admin"){
-    //     Alert.alert('Sucessful Login');
-    //     navigation.navigate("Dashboard");
-    // }else{
-    //     Alert.alert('Username or Password is not correct');
-    // }
   }
 
   return (
@@ -81,10 +60,7 @@ const Login =({navigation})=>{
         onChangeText={(domain) => setDomain(domain)}
       /> 
     </View> 
-<<<<<<< HEAD
 
-=======
->>>>>>> 1ed236befa1c84f6d7cc7efa7660ac349f63ca2e
     <TouchableOpacity style={styles.loginBtn} onPress={() => submit() }>
         <Text style={styles.loginText}>LOGIN</Text>  
       </TouchableOpacity> 
@@ -93,24 +69,20 @@ const Login =({navigation})=>{
       <Text style={styles.forgot_button}>Forgot Password?</Text> 
       </View>
       </TouchableOpacity> 
-
-      {/* <View style={styles.footer}>
-      <Text style={styles.powered}>Powered By</Text> 
-      <Image style={styles.image} source={require("./assets/DTRGLOGO.png")}  /> 
-      </View> */}
     </View> 
-
-    
   );
 }
 
 const styles = StyleSheet.create({
  
   container: {
-    flex:1,
+    flex: 1,
     backgroundColor: "#fff",
-     alignItems: "center",
-     justifyContent: "center",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  image: {
+    marginBottom: 40,
   },
   inputView: {
     width: "60%",
@@ -141,13 +113,7 @@ const styles = StyleSheet.create({
   },
   fontawesome:{
     color:"black"
-  },
-  footer:{
-marginTop:50,
-flexDirection:"row",
-letterSpacing:10,
-  },
-
+  }
 });
 
 export default Login;
