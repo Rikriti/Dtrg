@@ -1,6 +1,4 @@
 
-<<<<<<< HEAD
-
 import Login from "./Login";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -45,21 +43,6 @@ SplashScreen.hide();
             headerTintColor: 'white',
           }}
         />
-=======
-
-import Login from './Login';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Home from './Home';
-
-const App = () => {
-  const Stack = createNativeStackNavigator();
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="DG-Cloud">
-        <Stack.Screen name="DG-Cloud" component={Login} />
-        <Stack.Screen name="Dashboard" component={Home} />
->>>>>>> 1ed236befa1c84f6d7cc7efa7660ac349f63ca2e
       </Stack.Navigator>
     </NavigationContainer>
   );
