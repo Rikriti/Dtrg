@@ -6,6 +6,7 @@ import Home from "./Home";
 import {Image} from 'react-native';
 import SplashScreen from 'react-native-splash-screen'
 
+
 const App =()=> {
 SplashScreen.hide();
   const Stack = createNativeStackNavigator();
@@ -27,7 +28,7 @@ SplashScreen.hide();
           name="Dashboard"
           component={Home}
           options={{
-            // headerBackVisible:false,
+            headerBackVisible:false,
 
             title: 'DG-Cloud',
 
@@ -39,6 +40,7 @@ SplashScreen.hide();
             headerTitleStyle: {
               fontSize: 20,
               color: 'white',
+              fontFamily:'Roboto-Regular'
             },
             headerTintColor: 'white',
           }}
