@@ -1,16 +1,11 @@
 import { View, Text } from 'react-native'
 import {
   LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart
 } from "react-native-chart-kit";
-import { Dimensions } from "react-native";
+import { Dimensions} from "react-native";
 import React from 'react'
 
-const Home = () => {
+const Charts = () => {
 
   const chartConfig = {
     backgroundGradientFrom: "#5db4ef",
@@ -28,7 +23,7 @@ const Home = () => {
      <Text></Text>
   <LineChart
     data={{
-      labels: ["January", "February", "March", "April", "May", "June"],
+      labels: ["Account", "Admin", "Blood Bank", "ENT", "Pharmacy", "Radiology"],
       datasets: [
         {
           data: [
@@ -44,8 +39,6 @@ const Home = () => {
     }}
     width={Dimensions.get("window").width} // from react-native
     height={220}
-    yAxisLabel="$"
-    yAxisSuffix="k"
     yAxisInterval={1} // optional, defaults to 1
     chartConfig={{
       backgroundColor: "#36a2eb",
@@ -63,14 +56,9 @@ const Home = () => {
         stroke: "#ffa726"
       }
     }}
-    bezier
-    style={{
-      marginVertical: 8,
-      borderRadius: 16
-    }}
   />
     </View>
   )
 }
 
-export default Home
+export default Charts

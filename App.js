@@ -1,81 +1,64 @@
-
-import Login from "./Login";
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Home from "./Home";
-import {Image} from 'react-native';
-import SplashScreen from 'react-native-splash-screen'
+import Login from './Login';
+import Dashboard from './Dashboard';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import SplashScreen from 'react-native-splash-screen';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {TouchableOpacity, View, Alert, Text} from 'react-native';
+import Drawernav from './Drawernav';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
 
-const App =()=> {
 SplashScreen.hide();
 const Stack = createNativeStackNavigator();
-const Tab = createMaterialTopTabNavigator();
-return (
-  <NavigationContainer >
-     <Stack.Navigator initialRouteName="login">
+
+
+function SideDrawer () {
+  return ( 
+<Drawernav/>
+  );
+}
+
+function Contact(){}
+function Reports(){}
+function Logout(){}
+
+function StackNavigator() {
+  return (
+    <Stack.Navigator initialRouteName="login">
       <Stack.Screen
         name="login"
         component={Login}
         options={{
-          // headerTitle: () => (
-          //   <Image
-          //     source={require('./assets/DTRGLOGO.png')}
-          //   />
-          // ),
-          headerShown:false,
-        }}
-      />
-     <Stack.Screen
-        name="Dashboard"
-        component={Home}
-        options={{
-          headerBackVisible:false,
-
-          title: 'DG-Cloud',
-
-          headerStyle: {
-            backgroundColor: '#36a2eb',
-            borderBottomColor: 'red',
-            borderBottomWidth: 20,
-          },
-          headerTitleStyle: {
-            fontSize: 20,
-            color: 'white',
-            fontFamily:'Roboto-Regular'
-          },
-          headerTintColor: 'white',
           headerShown: false,
         }}
       />
-    </Stack.Navigator>
-    {/* <Tab.Navigator>
-    <Tab.Screen
+      <Stack.Screen
         name="Dashboard"
-        component={Home}
+        component={Dashboard}
         options={{
-          headerBackVisible:false,
+          headerTitle: () => (
+            <View style={{flexDirection:'row'}}>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => SideDrawer()}>
+                <FontAwesome5 name={'bars'} regular style={{fontSize: 20}} />
+              </TouchableOpacity>
+              <Text style={{fontSize:20, fontWeight:'bold', marginLeft:10, top:-3}}>DG-Cloud</Text>
+            </View>
+          ),
 
-          title: 'DG-Cloud',
-
-          headerStyle: {
-            backgroundColor: '#36a2eb',
-            borderBottomColor: 'red',
-            borderBottomWidth: 20,
-          },
-          headerTitleStyle: {
-            fontSize: 20,
-            color: 'white',
-            fontFamily:'Roboto-Regular'
-          },
-          headerTintColor: 'white',
+          headerBackVisible: false,
         }}
       />
-    </Tab.Navigator> */}
-  </NavigationContainer>
+    </Stack.Navigator>
   );
-};
+}
 
-export default App;
+export default function App() {
+  return (
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
+  );
+}
