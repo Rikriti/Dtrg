@@ -8,11 +8,24 @@ import Contact from './Contact';
 import Reports from './Reports';
 import Charts from './Charts';
 
-function Home() {
+
+function Home({navigation}) {
   return (
     <View style={styles.containerHome}>
-      <TouchableOpacity>
-        <Charts />
+      <TouchableOpacity activeOpacity={0.7}   onPress={() => navigation.navigate('Charts')}>
+        <View style={styles.accountModule}>
+          <Text style={styles.accounText}>Account</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.7}>
+        <View style={styles.pharmacyModule}>
+          <Text style={styles.pharmacyText}>Pharmacy</Text>
+        </View>
+      </TouchableOpacity>
+      <TouchableOpacity activeOpacity={0.7}>
+        <View style={styles.oipModule}>
+          <Text style={styles.oipText}>OPD/IPD</Text>
+        </View>
       </TouchableOpacity>
     </View>
   );
@@ -22,20 +35,20 @@ function AccountUser() {
   return (
     <View style={styles.containerAcc}>
       <View style={styles.card}>
-      <View style={styles.topInfo}>
-      <TouchableOpacity activeOpacity={0.8}>
-          <FontAwesome5
-            name={'user-circle'}
-            solid
-            style={styles.iconImage}
-            size={78}
-          />
-        </TouchableOpacity>
-        <View style={styles.info}>
-          <Text style={styles.infoText}>rikriti koirala</Text>
-          <Text>admin</Text>
+        <View style={styles.topInfo}>
+          <TouchableOpacity activeOpacity={0.8}>
+            <FontAwesome5
+              name={'user-circle'}
+              solid
+              style={styles.iconImage}
+              size={78}
+            />
+          </TouchableOpacity>
+          <View style={styles.info}>
+            <Text style={styles.infoText}>rikriti koirala</Text>
+            <Text>admin</Text>
+          </View>
         </View>
-      </View> 
         <View style={styles.list}>
           <View style={styles.inputContainer}>
             <FontAwesome5
@@ -86,7 +99,12 @@ function AccountUser() {
             />
           </View>
           <TouchableOpacity activeOpacity={0.8}>
-            <FontAwesome5 name={'edit'} solid style={styles.textEdit} size={18} />
+            <FontAwesome5
+              name={'edit'}
+              solid
+              style={styles.textEdit}
+              size={18}
+            />
           </TouchableOpacity>
         </View>
       </View>
@@ -96,7 +114,7 @@ function AccountUser() {
 
 const Tab = createBottomTabNavigator();
 
-function Dashboard() {
+function Dashboard({navigation}) {
   return (
     <Tab.Navigator>
       <Tab.Screen
@@ -105,9 +123,12 @@ function Dashboard() {
         options={{
           headerShown: false,
           tabBarLabel: 'Dashboard',
-          tabBarIcon: ({color, size}) => (
-            <FontAwesome5 name={'home'} solid color={color} size={size} />
+          tabBarIcon: ({color, size, focused}) => (
+            <FontAwesome5 name={'home'} solid color={focused ? '#1586d1' : color} size={size} />
           ),
+          tabBarStyle:{
+            
+          }
         }}
       />
 
@@ -117,8 +138,8 @@ function Dashboard() {
         options={{
           headerShown: false,
           tabBarLabel: 'Profile',
-          tabBarIcon: ({color, size}) => (
-            <FontAwesome5 name={'user'} light color={color} size={size} />
+          tabBarIcon: ({color, size, focused}) => (
+            <FontAwesome5 name={'user'} light color={focused ? '#1586d1' : color} size={size} />
           ),
         }}
       />
@@ -131,7 +152,15 @@ const styles = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor:'#e8f4fd'
+    backgroundColor: '#e8f4fd',
+    flexDirection: 'row',
+  },
+  containerHome: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    backgroundColor: '#e8f4fd',
   },
   card: {
     top: 0,
@@ -144,9 +173,9 @@ const styles = {
     borderColor: '#8bcaf4',
     borderRadius: 10,
   },
-  topInfo:{
-borderBottomWidth:1,
-borderBottomColor:'#36a2eb'
+  topInfo: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#36a2eb',
   },
   iconImage: {
     color: '#8bcaf4',
@@ -184,6 +213,45 @@ borderBottomColor:'#36a2eb'
     color: '#36a2eb',
     marginLeft: 270,
   },
+  accountModule: {
+    backgroundColor: '#36a2eb',
+     padding: 20,
+     marginLeft: 20,
+     top: -200,
+    borderWidth: 1,
+    borderRadius:10,
+    borderColor: ' #a2d4f6',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  accounText: {
+    fontSize: 15,
+    color: '#fff',
+  },
+  pharmacyModule: {
+    backgroundColor: '#36a2eb',
+    padding: 20,
+    marginLeft: 20,
+    top: -200,
+    borderWidth: 1,
+    borderRadius:10,
+    borderColor: ' #a2d4f6',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  pharmacyText: {fontSize: 15, color: '#fff'},
+  oipModule: {
+    backgroundColor: '#36a2eb',
+     padding: 20,
+     marginLeft: 20,
+     top: -200,
+    borderWidth: 1,
+    borderRadius:10,
+    borderColor: ' #a2d4f6',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  oipText: {fontSize: 15, color: '#fff'},
 };
 
 export default Dashboard;

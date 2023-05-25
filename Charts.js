@@ -4,8 +4,17 @@ import {
 } from "react-native-chart-kit";
 import { Dimensions} from "react-native";
 import React from 'react'
+import data from './ApiCall.mjs'
+import { useEffect } from 'react';
+
 
 const Charts = () => {
+  // data();
+  // const chartData = () =>{
+  //   return data();
+  // }
+
+  // console.log(chartData());
 
   const chartConfig = {
     backgroundGradientFrom: "#5db4ef",

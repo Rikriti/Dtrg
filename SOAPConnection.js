@@ -1,10 +1,12 @@
 import axios from 'axios';
 
+
 const SOAPConnection = async(username, password, domain) => {
   try {
     const username = 'admin';
     const password = 'super@dmin@123';
     const domain = 'admin';
+    
     const xmls =
       `<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
       <soap:Body>
@@ -49,6 +51,8 @@ const SOAPConnection = async(username, password, domain) => {
       },
     );
 
+
+    const parser = new DOMParser();
     return response;
   } catch (error) {
     console.log(error);

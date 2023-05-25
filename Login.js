@@ -13,7 +13,6 @@ import {
 
 import {FontFamily, Colors} from './assets/fonts/util/CommonStyle';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import ApiCall from './ApiCall'
 
 const Login = ({navigation}) => {
   const [show, setShow] = React.useState(false);
@@ -26,15 +25,9 @@ const Login = ({navigation}) => {
  
 
   const submit = async () => {
-    // return Alert.alert(email,password);
-    // if (username === 'admin' && password === '123' && domain === 'admin') {
-    //   // Alert.alert('Sucessful Login');
-    //   navigation.navigate('Dashboard');
-    // } else {
-    //   Alert.alert('Username or Password is not correct');
-    // }
+   
+  //  await data();
 
-    <ApiCall/>
     navigation.navigate('Dashboard');
   };
 
