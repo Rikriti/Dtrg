@@ -94,37 +94,6 @@ function AccountUser() {
   );
 }
 
-const Tab = createBottomTabNavigator();
-
-function Dashboard() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          headerShown: false,
-          tabBarLabel: 'Dashboard',
-          tabBarIcon: ({color, size}) => (
-            <FontAwesome5 name={'home'} solid color={color} size={size} />
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name="AccountUser"
-        component={AccountUser}
-        options={{
-          headerShown: false,
-          tabBarLabel: 'Profile',
-          tabBarIcon: ({color, size}) => (
-            <FontAwesome5 name={'user'} light color={color} size={size} />
-          ),
-        }}
-      />
-    </Tab.Navigator>
-  );
-}
 
 const styles = {
   containerAcc: {
@@ -186,4 +155,4 @@ borderBottomColor:'#36a2eb'
   },
 };
 
-export default Dashboard;
+export { Home , AccountUser };

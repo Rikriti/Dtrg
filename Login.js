@@ -34,7 +34,7 @@ const Login = ({navigation}) => {
     //   Alert.alert('Username or Password is not correct');
     // }
 
-    <ApiCall/>
+    // <ApiCall/>
     navigation.navigate('Dashboard');
   };
 

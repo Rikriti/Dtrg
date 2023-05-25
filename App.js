@@ -8,7 +8,6 @@ import {TouchableOpacity, View, Alert, Text} from 'react-native';
 import Drawernav from './Drawernav';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 
-
 SplashScreen.hide();
 const Stack = createNativeStackNavigator();
 
@@ -35,21 +34,11 @@ function StackNavigator() {
       />
       <Stack.Screen
         name="Dashboard"
-        component={Dashboard}
+        component={Drawernav}
         options={{
-          headerTitle: () => (
-            <View style={{flexDirection:'row'}}>
-              <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={() => SideDrawer()}>
-                <FontAwesome5 name={'bars'} regular style={{fontSize: 20}} />
-              </TouchableOpacity>
-              <Text style={{fontSize:20, fontWeight:'bold', marginLeft:10, top:-3}}>DG-Cloud</Text>
-            </View>
-          ),
-
-          headerBackVisible: false,
+          headerShown: false,
         }}
+
       />
     </Stack.Navigator>
   );
