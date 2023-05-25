@@ -13,7 +13,7 @@ const Drawernav = () => {
   return (
       <Drawer.Navigator>
         <Drawer.Screen name="DG-Cloud" component= {TabNav} />
-        <Drawer.Screen name="Contact" component={Contact} />
+        <Drawer.Screen name="Contact" component={TabNav} />
         <Drawer.Screen name="Reports" component={Reports} />
       </Drawer.Navigator>
   )
