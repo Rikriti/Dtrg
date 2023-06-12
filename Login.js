@@ -96,12 +96,14 @@ const Login = ({navigation}) => {
               onChangeText={domain => setDomain(domain)}
             />
           </View>
+          <View style={{justifyContent:'center', alignItems : 'center'}}>
           <TouchableOpacity
             style={styles.loginBtn}
             onPress={() => submit()}
             activeOpacity={0.8}>
-            <Text style={styles.loginText}>LOGIN</Text>
+            <Text style={styles.loginText}>Login</Text>
           </TouchableOpacity>
+          </View>
           <View style={styles.afterLogin}>
             <View>
               <TouchableOpacity activeOpacity={0.8}>
@@ -127,6 +129,8 @@ const styles = {
   afterLogin: {
     marginTop: 20,
     flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems:'center'
   },
   loginBtn: {
     width: '60%',
@@ -154,7 +158,7 @@ const styles = {
   },
   logoContainer: {
     alignItems: 'center',
-    marginTop: 120,
+    marginTop: 50,
   },
   logo: {
     width: 120,
@@ -165,6 +169,7 @@ const styles = {
   formContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop : 30,
   },
   title: {
     fontSize: 24,
@@ -186,21 +191,23 @@ const styles = {
     borderBottomWidth: 1,
     borderBottomColor: '#36a2eb',
     flexDirection: 'row',
-    width: '80%',
+    width: '100%',
   },
   input: {
     height: 40,
     color: '#333',
-    paddingLeft: 10,
+    width:100,
+    marginLeft: 10,
   },
   textInputIcon: {
     color: '#333',
-    paddingLeft: 10,
+    marginLeft: 10,
     top: 12,
   },
   eyeIcon: {
     color: '#333',
-    paddingLeft: 92,
+    position: 'absolute',
+    left: 92,
     top: 12,
   },
 };
